@@ -4,9 +4,9 @@ CREATE DATABASE wildlife;
 
 CREATE TABLE sightings(
 id SERIAL PRIMARY KEY,
-name VARCHAR,
-age INTEGER,
-health VARCHAR,
+speciesName VARCHAR,
+speciesAge INTEGER,
+speciesHealth VARCHAR,
 rangerId INTEGER,
 locationId INTEGER
 );
