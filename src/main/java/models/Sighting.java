@@ -5,16 +5,21 @@ public class Sighting {
 
     //create properties
     private int id;
-    private Species species;
+    private String speciesName;
     private int rangerId;
     private int locationId;
+    private String type;
+    private static final String TYPE = "Non-Endangered";
 
     //generate constructor
-    public Sighting(Species species, int rangerId, int locationId) {
-        this.species = species;
+
+    public Sighting(String speciesName, int rangerId, int locationId) {
+        this.speciesName = speciesName;
         this.rangerId = rangerId;
         this.locationId = locationId;
+        this.type = TYPE;
     }
+
 
     //generate setters and getters
 
@@ -26,12 +31,12 @@ public class Sighting {
         this.id = id;
     }
 
-    public Species getSpecies() {
-        return species;
+    public String getSpeciesName() {
+        return speciesName;
     }
 
-    public void setSpecies(Species species) {
-        this.species = species;
+    public void setSpeciesName(String speciesName) {
+        this.speciesName = speciesName;
     }
 
     public int getRangerId() {
@@ -49,4 +54,13 @@ public class Sighting {
     public void setLocationId(int locationId) {
         this.locationId = locationId;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
 }
