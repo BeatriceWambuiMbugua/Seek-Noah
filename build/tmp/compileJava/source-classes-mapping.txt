@@ -1,26 +1,26 @@
-DAO/Sql2oRangerDAO.java
- DAO.Sql2oRangerDAO
+DAO/Sql2oLocationDAO.java
+ DAO.Sql2oLocationDAO
 DAO/Sql2oSightingEndangeredSpeciesDAO.java
  DAO.Sql2oSightingEndangeredSpeciesDAO
 DAO/SightingDAO.java
  DAO.SightingDAO
 DAO/Sql2oSightingDAO.java
  DAO.Sql2oSightingDAO
-DAO/RangerDAO.java
- DAO.RangerDAO
-App.java
- App
+DAO/LocationDAO.java
+ DAO.LocationDAO
+models/Ranger.java
+ models.Ranger
 DAO/SightingEndangeredSpeciesDAO.java
  DAO.SightingEndangeredSpeciesDAO
 models/Sighting.java
  models.Sighting
-DAO/Sql2oLocationDAO.java
- DAO.Sql2oLocationDAO
-DAO/LocationDAO.java
- DAO.LocationDAO
-models/Location.java
- models.Location
 models/SightingEndangeredSpecies.java
  models.SightingEndangeredSpecies
-models/Ranger.java
- models.Ranger
+models/Location.java
+ models.Location
+DAO/Sql2oRangerDAO.java
+ DAO.Sql2oRangerDAO
+DAO/RangerDAO.java
+ DAO.RangerDAO
+App.java
+ App

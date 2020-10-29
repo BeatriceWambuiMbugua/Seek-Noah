@@ -1,6 +1,6 @@
-CREATE DATABASE wildlife;
+CREATE DATABASE wildlife_tracker;
 
-\c wildlife
+\c wildlife_tracker
 
 CREATE TABLE sightings(
 id SERIAL PRIMARY KEY,
