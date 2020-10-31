@@ -74,13 +74,15 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         get("/sightnormal", (req, res)->{
+            model.put("rangers", RangerDAO.getAllRangers());
+            model.put("locations", LocationDAO.getAllLocations());
             return new ModelAndView(model, "sightings-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/sightendangered", (req, res)->{
             model.put("endangered", true);
-//            model.put("rangers", RangerDAO.getAllRangers());
-//            model.put("locations", LocationDAO.getAllLocations());
+            model.put("rangers", RangerDAO.getAllRangers());
+            model.put("locations", LocationDAO.getAllLocations());
             return new ModelAndView(model, "sightings-form.hbs");
         }, new HandlebarsTemplateEngine());
 
