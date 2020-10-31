@@ -4,6 +4,7 @@ import models.Ranger;
 
 import static spark.Spark.*;
 
+import models.Sighting;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -79,12 +80,24 @@ public class App {
             return new ModelAndView(model, "sightings-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        post("/sightnormal", (req, res) -> {
+            String speciesName = req.queryParams("name");
+            int rangerId = Integer.parseInt(req.queryParams("ranger"));
+            int locationId = Integer.parseInt(req.queryParams("location"));
+            Sighting newSighting = new Sighting(speciesName, rangerId, locationId);
+            sightingDAO.addNormal(newSighting);
+            model.put("endangeredSightings", sightingEndangeredSpeciesDAO.getAllEndangered());
+            model.put("normalSightings", sightingDAO.getNormal());
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
         get("/sightendangered", (req, res)->{
             model.put("endangered", true);
             model.put("rangers", RangerDAO.getAllRangers());
             model.put("locations", LocationDAO.getAllLocations());
             return new ModelAndView(model, "sightings-form.hbs");
         }, new HandlebarsTemplateEngine());
+
 
 
     }
