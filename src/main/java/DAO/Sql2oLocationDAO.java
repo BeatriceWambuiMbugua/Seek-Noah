@@ -28,9 +28,9 @@ public class Sql2oLocationDAO implements LocationDAO{
 
     @Override
     public void addLocation(Location location) {
-        String sql = "INSERT INTO locations (name) values (:name)";
+        String sql = "INSERT INTO locations (locationName) VALUES (:locationName)";
         try (Connection conn = sql2o.open()){
-            int id = (int) conn.createQuery(sql, "true")
+            int id = (int) conn.createQuery(sql, true)
                     .bind(location)
                     .executeUpdate()
                     .getKey();

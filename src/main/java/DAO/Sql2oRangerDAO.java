@@ -28,7 +28,7 @@ public class Sql2oRangerDAO implements RangerDAO {
     }
 
     @Override
-    public void addRangers(Ranger ranger) {
+    public void addRanger(Ranger ranger) {
         String sql = "INSERT INTO rangers (rangerName, rangerBadgeNumber, rangerContact) values(:rangerName, :rangerBadgeNumber, :rangerContact)";
         try(Connection conn = sql2o.open()){
             int id = (int) conn.createQuery(sql, true)

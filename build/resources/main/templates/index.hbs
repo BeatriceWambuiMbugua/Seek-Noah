@@ -4,15 +4,43 @@
     <div class="container" id="data">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    {{#if sightings}}
-                        {{#each sightings}}
-                            <p>{{speciesName}}</p>
-                            <a href="/sightings/{{id}}" class="btn btn-success">Information</a>
-                        {{/each}}
+                <div class="col-md-3">
+                    {{#if endangeredSightings}}
+                        <div class="card text-white mb-3" id="data7">
+                            <div class="card-header">
+                                <p>Endangered Sightings</p>
+                            </div>
+                            <div class="card-body mb-3" id="data8">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" id="data8">Type: {{sightings.type}}</li>
+                                    <li class="list-group-item" id="data8">Name: {{sightings.speciesName}}</li>
+                                    <li class="list-group-item" id="data8">Age: {{sightings.speciesAge}}</li>
+                                    <li class="list-group-item" id="data8">Health: {{sightings.speciesHealth}}</li>
+                                    <li class="list-group-item" id="data8">Location: {{sightings.locationId}}</li>
+                                    <li class="list-group-item" id="data8">Ranger: {{sightings.rangerId}}</li>
+                                </ul>
+                            </div>
+                        </div>
                     {{/if}}
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    {{#if normalSightings}}
+                        <div class="card text-white mb-3" id="data7">
+                            <div class="card-header">
+                                <p>Non-Endangered Sightings</p>
+                            </div>
+                            <div class="card-body mb-3" id="data8">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" id="data8">Type: {{sightings.type}}</li>
+                                    <li class="list-group-item" id="data8">Name: {{sightings.speciesName}}</li>
+                                    <li class="list-group-item" id="data8">Location: {{sightings.locationId}}</li>
+                                    <li class="list-group-item" id="data8">Ranger: {{sightings.rangerId}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    {{/if}}
+                </div>
+                <div class="col-md-3">
                     {{#if rangers}}
                         {{#each rangers}}
                             <p>{{rangerName}}</p>
@@ -20,7 +48,7 @@
                         {{/each}}
                     {{/if}}
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                     {{#if locations}}
                     {{#each locations}}
                         <p>{{locationName}}</p>
@@ -33,12 +61,12 @@
     </div>
 {{/partial}}
 <!--footer-->
-{{#partial "footer"}}
-    <footer>
-        <hr>
-        <p> &copy; Copyright 2020 </p>
-        <p>Author: Beatrice Wambui Mbugua </p>
-        <p>Email: <a href="#">wambuimbeatrice@gmail.com</a></p>
-    </footer>
-{{/partial}}
+<!--{{#partial "footer"}}-->
+<!--    <footer>-->
+<!--        <hr>-->
+<!--        <p> &copy; Copyright 2020 </p>-->
+<!--        <p>Author: Beatrice Wambui Mbugua </p>-->
+<!--        <p>Email: <a href="#">wambuimbeatrice@gmail.com</a></p>-->
+<!--    </footer>-->
+<!--{{/partial}}-->
 {{> layout.hbs}}

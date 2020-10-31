@@ -10,10 +10,11 @@ import java.util.List;
 public class Sql2oSightingEndangeredSpeciesDAO implements SightingEndangeredSpeciesDAO{
    private final Sql2o sql2o;
 
-   //generate constructor
+    //generate constructor
     public Sql2oSightingEndangeredSpeciesDAO(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
+
     //generate Override code
     @Override
     public List<SightingEndangeredSpecies> getAllEndangered() {
@@ -29,6 +30,15 @@ public class Sql2oSightingEndangeredSpeciesDAO implements SightingEndangeredSpec
 
     @Override
     public void addEndangeredSpecies(SightingEndangeredSpecies sightingEndangeredSpecies) {
-
+        String sql = "INSERT INTO sightings(speciesName, speciesAge, speciesHealth, rangerId, type, locationId) values (:speciesName, :speciesAge, :speciesHealth, :rangerId, :locationId)";
+        try(Connection conn = sql2o.open()){
+            int id = (int) conn.createQuery(sql, true)
+                    .bind(sightingEndangeredSpecies)
+                    .executeUpdate()
+                    .getKey();
+            sightingEndangeredSpecies.setId(id);
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
     }
 }

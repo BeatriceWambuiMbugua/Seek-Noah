@@ -7,6 +7,7 @@ public class Location {
 
     //generate constructor
     public Location(String locationName) {
+
         this.locationName = locationName;
     }
 

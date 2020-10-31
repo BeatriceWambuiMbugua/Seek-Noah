@@ -1,6 +1,6 @@
-CREATE DATABASE wildlife_tracker;
+CREATE DATABASE animal_tracker;
 
-\c wildlife_tracker
+\c animal_tracker
 
 CREATE TABLE sightings(
 id SERIAL PRIMARY KEY,
@@ -8,7 +8,8 @@ speciesName VARCHAR,
 speciesAge INTEGER,
 speciesHealth VARCHAR,
 rangerId INTEGER,
-locationId INTEGER
+locationId INTEGER,
+type VARCHAR
 );
 
 CREATE TABLE rangers(
@@ -20,5 +21,5 @@ rangerContact VARCHAR NOT NULL
 
 CREATE TABLE locations(
 id SERIAL PRIMARY KEY,
-name VARCHAR
+locationName VARCHAR
 );
