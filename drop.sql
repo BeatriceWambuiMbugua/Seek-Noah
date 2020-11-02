@@ -1,1 +1,1 @@
-DROP TABLE animal_tracker;
+DROP TABLE animal;

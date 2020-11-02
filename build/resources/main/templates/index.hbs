@@ -1,72 +1,72 @@
 {{#partial "content"}}
-<!--    <div class="data-image">-->
-<!--    </div>-->
+    <div class="data-image"></div>
     <div class="container" id="data">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
                     {{#if endangeredSightings}}
-                        <div class="card text-white mb-3" id="data7">
-                            <div class="card-header">
-                                <p>Endangered Sightings</p>
-                            </div>
-                            <div class="card-body mb-3" id="data8">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" id="data8">Type: {{sightings.type}}</li>
-                                    <li class="list-group-item" id="data8">Name: {{sightings.speciesName}}</li>
-                                    <li class="list-group-item" id="data8">Age: {{sightings.speciesAge}}</li>
-                                    <li class="list-group-item" id="data8">Health: {{sightings.speciesHealth}}</li>
-                                    <li class="list-group-item" id="data8">Location: {{sightings.locationId}}</li>
-                                    <li class="list-group-item" id="data8">Ranger: {{sightings.rangerId}}</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <table class="table table-sm table-dark">
+                            <thead>
+                            <tr>
+                                <th scope="col">Type</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Health</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Ranger</th>
+                            </tr>
+                            </thead>
+                            {{#each endangeredSightings}}
+                                <tbody>
+                                <tr>
+                                    <th >{{type}}</th>
+                                    <td>{{speciesName}}</td>
+                                    <td>{{speciesAge}}</td>
+                                    <td>{{speciesHealth}}</td>
+                                    <td>{{locationId}}</td>
+                                    <td>{{rangerId}}</td>
+                                </tr>
+                                </tbody>
+                            {{/each}}
+                        </table>
                     {{/if}}
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                     {{#if normalSightings}}
-                        <div class="card text-white mb-3" id="data7">
-                            <div class="card-header">
-                                <p>Non-Endangered Sightings</p>
-                            </div>
-                            <div class="card-body mb-3" id="data8">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" id="data8">Type: {{sightings.type}}</li>
-                                    <li class="list-group-item" id="data8">Name: {{sightings.speciesName}}</li>
-                                    <li class="list-group-item" id="data8">Location: {{sightings.locationId}}</li>
-                                    <li class="list-group-item" id="data8">Ranger: {{sightings.rangerId}}</li>
-                                </ul>
-                            </div>
+                        <table class="table table-sm table-dark">
+                            <thead>
+                            <tr>
+                                <th scope="col">Type</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Ranger</th>
+                            </tr>
+                            </thead>
+                            {{#each normalSightings}}
+                                <tbody>
+                                <tr>
+                                    <th >{{type}}</th>
+                                    <td>{{speciesName}}</td>
+                                    <td>{{locationId}}</td>
+                                    <td>{{rangerId}}</td>
+                                </tr>
+                                </tbody>
+                            {{/each}}
+                        </table>
                         </div>
-                    {{/if}}
-                </div>
-                <div class="col-md-3">
-                    {{#if rangers}}
-                        {{#each rangers}}
-                            <p>{{rangerName}}</p>
-                            <a href="/rangers/{{id}}" class="btn btn-success">Information</a>
-                        {{/each}}
-                    {{/if}}
-                </div>
-                <div class="col-md-3">
-                    {{#if locations}}
-                    {{#each locations}}
-                        <p>{{locationName}}</p>
-                        <a href="/locations/{{id}}" class="btn btn-success">Information</a>
-                    {{/each}}
                     {{/if}}
                 </div>
             </div>
         </div>
-    </div>
+
 {{/partial}}
-<!--footer-->
-<!--{{#partial "footer"}}-->
-<!--    <footer>-->
-<!--        <hr>-->
-<!--        <p> &copy; Copyright 2020 </p>-->
-<!--        <p>Author: Beatrice Wambui Mbugua </p>-->
-<!--        <p>Email: <a href="#">wambuimbeatrice@gmail.com</a></p>-->
-<!--    </footer>-->
-<!--{{/partial}}-->
+
+{{#partial "footer"}}
+    <footer>
+        <hr>
+        <p> &copy; Copyright 2020 </p>
+        <p>Author: Beatrice Wambui Mbugua </p>
+        <p>Email: <a href="#">wambuimbeatrice@gmail.com</a></p>
+    </footer>
+{{/partial}}
 {{> layout.hbs}}

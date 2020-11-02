@@ -1,6 +1,9 @@
 package DAO;
 
 import models.Location;
+import models.Ranger;
+import models.Sighting;
+import models.SightingEndangeredSpecies;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -37,6 +40,47 @@ public class Sql2oLocationDAO implements LocationDAO{
             location.setId(id);
         }catch (Sql2oException ex){
             System.out.println(ex);
+        }
+    }
+
+    @Override
+    public Location getLocationById(int id) {
+        String sql = "SELECT * FROM locations WHERE id=:id";
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Location.class);
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+            return null;
+        }
+    }
+
+    @Override
+    public List<Sighting> getSightingsByLocationId(int id) {
+        String sql = "SELECT * FROM sightings WHERE type = 'Non-Endangered' AND locationId=:id";
+        try (Connection con = sql2o.open()){
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Sighting.class);
+        }catch(Sql2oException ex){
+            System.out.println(ex);
+            return null;
+        }
+    }
+
+    @Override
+    public List<SightingEndangeredSpecies> getEndangeredSightingsByLocationId(int id) {
+        String sql = "SELECT * FROM sightings WHERE type ='Endangered' AND locationId=:id";
+        try(Connection con = sql2o.open()){
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(SightingEndangeredSpecies.class);
+        }catch(Sql2oException ex) {
+            System.out.println(ex);
+            return null;
         }
     }
 }

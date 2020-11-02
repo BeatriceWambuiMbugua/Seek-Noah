@@ -1,11 +1,11 @@
-CREATE DATABASE animal_tracker;
+CREATE DATABASE animal;
 
-\c animal_tracker
+\c animal;
 
 CREATE TABLE sightings(
 id SERIAL PRIMARY KEY,
 speciesName VARCHAR,
-speciesAge INTEGER,
+speciesAge VARCHAR,
 speciesHealth VARCHAR,
 rangerId INTEGER,
 locationId INTEGER,

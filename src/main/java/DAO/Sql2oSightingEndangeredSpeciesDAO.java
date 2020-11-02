@@ -30,7 +30,7 @@ public class Sql2oSightingEndangeredSpeciesDAO implements SightingEndangeredSpec
 
     @Override
     public void addEndangeredSpecies(SightingEndangeredSpecies sightingEndangeredSpecies) {
-        String sql = "INSERT INTO sightings(speciesName, speciesAge, speciesHealth, rangerId, type, locationId) values (:speciesName, :speciesAge, :speciesHealth, :rangerId, :locationId)";
+        String sql = "INSERT INTO sightings(speciesName, speciesAge, speciesHealth, rangerId, type, locationId) values (:speciesName, :speciesAge, :speciesHealth, :rangerId, :type, :locationId)";
         try(Connection conn = sql2o.open()){
             int id = (int) conn.createQuery(sql, true)
                     .bind(sightingEndangeredSpecies)
