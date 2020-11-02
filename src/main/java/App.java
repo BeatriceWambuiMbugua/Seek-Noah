@@ -14,11 +14,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class App {
-    public static void main(String[] args) {
+        static int getHerokuAssignedPort() {
+            ProcessBuilder processBuilder = new ProcessBuilder();
+            if (processBuilder.environment().get("PORT") != null) {
+                return Integer.parseInt(processBuilder.environment().get("PORT"));
+            }
+            return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+        }
+        public static void main(String[] args) {
+
+            port(getHerokuAssignedPort());
 
         staticFileLocation("/public");
-        String connectionString = "jdbc:postgresql://localhost:5432/animal";
-        Sql2o sql2o = new Sql2o(connectionString, "moringa", "Access");
+        //String connectionString = "jdbc:postgresql://localhost:5432/animal";
+        String connectionString = "jdbc:postgresql://ec2-3-210-23-22.compute-1.amazonaws.com:5432/dbtopfbspaho5k";
+        //Sql2o sql2o = new Sql2o(connectionString, "moringa", "Access");
+        Sql2o sql2o = new Sql2o(connectionString, "ipnozpdkiqbvuj", "32bd6602fc46b2fc2150c47aa6c3b9623772df8e57ec5b9bd33ad83eb1a1c840");
         Sql2oLocationDAO locationDAO = new Sql2oLocationDAO(sql2o);
         Sql2oRangerDAO rangerDAO = new Sql2oRangerDAO(sql2o);
         Sql2oSightingDAO sightingDAO = new Sql2oSightingDAO(sql2o);
