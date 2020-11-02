@@ -118,6 +118,14 @@ public class App {
             return new ModelAndView(model,"ranger-details.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/locations/:id",(req, res)->{
+            int id = Integer.parseInt(req.params("id"));
+            model.put("location", locationDAO.getLocationById(id));
+            model.put("endangeredSightings", locationDAO.getEndangeredSightingsByLocationId(id));
+            model.put("normalSightings", locationDAO.getSightingsByLocationId(id));
+            return new ModelAndView(model,"location-details.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
 
 
