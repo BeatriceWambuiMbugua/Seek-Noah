@@ -7,7 +7,7 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("
 background-position: fixed;
 background-size: cover;
 background-repeat: no-repeat;
-height: 100vh;
+height: 150vh;
 width: 102%;
 margin-right: -1%;
 margin-left: -1%;
@@ -56,6 +56,7 @@ align-self: center;
 text-align: center;
 margin-top: auto;
 margin-bottom: auto;
+padding-top: 20%;
 }
 
 #data2{
@@ -83,8 +84,15 @@ font-style: italic;
 width: 50%;
 align-self: center;
 vertical-align: center;
- margin-left: auto;
-  margin-right: auto;
+margin-left: auto;
+margin-right: auto;
+}
+
+#index2{
+padding-top: 30px;
+margin-top: auto;
+padding-bottom: 30px;
+margin-bottom: auto;
 }
 .rangername{
 text-align: left;
@@ -96,9 +104,9 @@ font-size: 20px;
 }
 footer{
 text-align: center;
-padding: 2px;
-background-color: #cb997e;
-color: black;
+margin-bottom: -10px;
+background-color: black;
+color: white;
 font-family: 'Tangerine', cursive;
 font-weight: bold;
 font-size: 13px;

@@ -1,5 +1,7 @@
 package models;
 
+
+
 public class Sighting {
 
 
@@ -12,6 +14,7 @@ public class Sighting {
     private static final String TYPE = "Non-Endangered";
 
     //generate constructor
+
 
     public Sighting(String speciesName, int rangerId, int locationId) {
         this.speciesName = speciesName;
@@ -62,5 +65,6 @@ public class Sighting {
     public void setType(String type) {
         this.type = type;
     }
+
 
 }

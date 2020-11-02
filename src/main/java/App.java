@@ -126,9 +126,5 @@ public class App {
             return new ModelAndView(model,"location-details.hbs");
         }, new HandlebarsTemplateEngine());
 
-
-
-
-
     }
 }

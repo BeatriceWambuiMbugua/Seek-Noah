@@ -1,5 +1,7 @@
 package models;
 
+import java.sql.Timestamp;
+
 public class SightingEndangeredSpecies extends Sighting {
     private String speciesAge;
     private String speciesHealth;
