@@ -43,4 +43,6 @@ public class Sql2oSightingDAO implements SightingDAO{
         }
 
     }
+
+
 }
